@@ -103,14 +103,6 @@
                                 <div class=" input-group">
                                     <div class="input-group-prepend">
                                       <div class="input-group-text">
-                                        <input type="radio" id="alumno"  value="alumno" name="chk_rol">
-                                      </div>
-                                    </div>
-                                    <label id="alumno" class="form-control" > Alumn@ </label>
-                                </div>
-                                <div class=" input-group">
-                                    <div class="input-group-prepend">
-                                      <div class="input-group-text">
                                         <input type="radio" id="tutor" value="tutor" name="chk_rol" >
                                       </div>
                                     </div>
@@ -118,6 +110,17 @@
                                 </div>
                             </div>
                         </div>
+                        <script type="text/javascript">
+                             $("chk_rol").click(function(){
+                                alert();
+                                var selValue = $("input[type='radio']:checked").val();
+                                // TODO:  Change this code for a best option if it exsist  
+                                const div = document.createElement('div');
+                                div.className = 'row';
+                                div.innerHTML = "<label> Si se pudo </label>" 
+                            });
+                        </script>
+                        
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
