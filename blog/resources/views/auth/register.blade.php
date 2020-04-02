@@ -80,7 +80,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                        
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirma contraseña') }}</label>
 
