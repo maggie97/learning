@@ -15,6 +15,13 @@ class CreateChildTable extends Migration
     {
         Schema::create('child', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('lastName');
+            $table->string('dateBorn');
+            $table->unsignedBigInteger('users_tutor_id');
+            $table->foreign('users_tutor_id')->references('id')->on('users');
+            $table->unsignedBigInteger('users_professor_id');
+            $table->foreign('users_professor_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
