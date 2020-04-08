@@ -1,0 +1,54 @@
+.bubble {
+
+    width: 100px;
+    height: 100px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #5cb85c;
+
+    position: relative;
+    display: block;
+}
+
+/*  
+Definimos los estilos de la pelota y
+de la caja que la contiene
+*/
+
+#imagen{
+/*Es importantisimo asignarle a la imagen una posición relativa
+    para que pueda moverse siguiendo el flujo natural del HTML es
+    decir dentro de la caja. Si le ponemos posición absoluta la bola
+    se saldrá del div, y si utilizas posición fixed la bola utilizará
+    toda la ventana del navegador para dar vueltas, por defecto la posición
+    de los elementos es estática lo que quiere decir que no pueden posicionarse
+    por encima de otros elementos sino que van uno detrás de otro.
+*/
+    position:relative;
+    display:block;
+    width:200px;
+}
+
+#lienzo{
+    width:100%;
+    height:450px;
+    border:1px solid gray;
+    box-shadow:0px 0px 20px gray inset;
+    border-radius:20px;
+    overflow: hidden;
+}
+
+/*Animaciones CSS*/
+.gira{
+    -moz-animation:rotar 700ms infinite linear;
+    -webkit-animation:rotar 700ms infinite linear;
+}
+@-moz-keyframes rotar{
+    from{-moz-transform:rotate(0deg);}
+    to{-moz-transform:rotate(360deg);}
+}
+@-webkit-keyframes rotar{
+    from{-webkit-transform:rotate(0deg);}
+    to{-webkit-transform:rotate(360deg);}
+}
