@@ -19,7 +19,7 @@ composer install
 ## Generar la llave para Laravel
 
 ````
-php artisan migrate 
+php artisan key:generate 
 ````
 ## Generar la base de datos 
 
