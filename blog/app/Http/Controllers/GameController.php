@@ -14,7 +14,28 @@ class GameController extends Controller
      */
     public function index()
     {
+        return view('game');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function bubbles()
+    {
+        return view('bubblesGame');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function memory()
+    {
         //
+        return view('memoryGame');
     }
 
     /**
