@@ -1,16 +1,19 @@
 .bubble {
-
     width: 100px;
     height: 100px;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    background: #5cb85c;
+    background: #cbe3e6;
 
-    position: relative;
+    position: absolute;
     display: block;
 }
 
+#aciertos, #puntaje{
+    font-size: 23px;
+    font-weight:100;
+}
 /*  
 Definimos los estilos de la pelota y
 de la caja que la contiene
@@ -37,18 +40,5 @@ de la caja que la contiene
     box-shadow:0px 0px 20px gray inset;
     border-radius:20px;
     overflow: hidden;
-}
 
-/*Animaciones CSS*/
-.gira{
-    -moz-animation:rotar 700ms infinite linear;
-    -webkit-animation:rotar 700ms infinite linear;
-}
-@-moz-keyframes rotar{
-    from{-moz-transform:rotate(0deg);}
-    to{-moz-transform:rotate(360deg);}
-}
-@-webkit-keyframes rotar{
-    from{-webkit-transform:rotate(0deg);}
-    to{-webkit-transform:rotate(360deg);}
 }
