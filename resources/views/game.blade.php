@@ -12,7 +12,7 @@
     <div class="row justify-content-center">
         <div class="col-4" style="height: 200px">
             <a href="{{ route('bubbles') }}">
-                <img src="{{ url('img/bubblesGame.png')}}" alt="" style="width:100%; height: 100%">
+                <img src="{{ url('img/bubblesGame.jpg')}}" alt="" style="width:100%; height: 100%">
             </a>
         </div>
         <div class="col-4" style="height: 200px; width:100% ">
