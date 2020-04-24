@@ -35,7 +35,7 @@ class GameController extends Controller
     public function memory()
     {
         //
-        return view('memoryGame');
+        return view('memoria.memoryGame');
     }
 
     /**
