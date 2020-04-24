@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('scripts')
+<link href="{{ asset('css/game.css') }}" rel="stylesheet">
 <script>
 
     var y=0;          
