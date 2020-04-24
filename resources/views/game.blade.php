@@ -17,7 +17,7 @@
         </div>
         <div class="col-4" style="height: 200px; width:100% ">
             <a href="{{ route('memory')}}">
-                <img src="{{ url('/img/memoryGame.png')}}" alt="" style="width:100%; height: 100%">
+                <img src="{{ url('/img/memoryGame.jpg')}}" alt="" style="width:100%; height: 100%">
             </a>
         </div>
     </div>
