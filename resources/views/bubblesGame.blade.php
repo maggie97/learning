@@ -147,6 +147,7 @@
                     <h3>Aciertos:</h3>
                     <p id="aciertos"></p>
                 </div>
+                
                 <div class="col-4 d-flex">
                     <h3>Puntuacion:</h3>
                     <p id="puntaje"></p>

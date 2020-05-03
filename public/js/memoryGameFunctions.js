@@ -1,24 +1,23 @@
-const cards = document.querySelectorAll('.memory-card');
 
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
-function flipCard(){
+function flipCard(id){
+    card = document.getElementById(id);
     if (lockBoard) return;
-    if (this === firstCard) return;
+    if (card === firstCard) return;
 
-     this.classList.toggle('flip');
+    card.classList.toggle('flip');
 
-     if(!hasFlippedCard){
-         //first click
-         hasFlippedCard = true;
-         firstCard = this;
-         return;
-     }
-     
+    if(!hasFlippedCard){
+        //first click
+        hasFlippedCard = true;
+        firstCard = card;
+        return;
+    }
      //second click 
-     secondCard = this;
+     secondCard = card;
 
      checkForMatch();
 }
@@ -52,12 +51,10 @@ function resetBoard(){
     [firstCard, secondCard] = [null, null];
 }
 
-(function shuffle() {
-    cards.forEach(card => {
+window.onload = function(){
+    cards = document.getElementsByClassName('memory-card');
+    for ( c of cards) {
         let randomPos = Math.floor(Math.random() * 12);
-        card.style.order = randomPos;
-    });
-}) ();
-
-cards.forEach(card => card.addEventListener('click', flipCard));
-
+        c.style.order = randomPos;
+    }
+}
