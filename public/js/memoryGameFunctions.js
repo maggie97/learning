@@ -2,7 +2,8 @@
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
-
+var aciertos = 0;
+var points = 0;
 function flipCard(id){
     card = document.getElementById(id);
     if (lockBoard) return;
@@ -31,7 +32,10 @@ function checkForMatch(){
 function disableCards(){
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
-
+    points += 2;
+    if (this.aciertos == this.points){
+        alert("Ganaste");
+    }
     resetBoard();
 }
 
@@ -57,4 +61,5 @@ window.onload = function(){
         let randomPos = Math.floor(Math.random() * 12);
         c.style.order = randomPos;
     }
+    this.aciertos = cards.length / 2;
 }
