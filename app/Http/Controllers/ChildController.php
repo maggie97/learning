@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ChildController extends Controller
@@ -13,7 +16,7 @@ class ChildController extends Controller
      */
     public function index()
     {
-        //
+        return DB::table('child')->get();
     }
 
     /**
@@ -23,7 +26,7 @@ class ChildController extends Controller
      */
     public function create()
     {
-        //
+        return view('children.newChild');
     }
 
     /**
@@ -34,7 +37,7 @@ class ChildController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -45,6 +48,11 @@ class ChildController extends Controller
      */
     public function show($id)
     {
+        $user =  Auth::user();
+        // DB::table('child')->join('users', 'users.id', '=', 'child.users_tutor_id')->get();
+        if($user->rol == 'T'){
+           return  DB::table('child')->join('users', 'users.id', '=', 'child.users_tutor_id')->get(); 
+        }
         //
     }
 
