@@ -15,21 +15,21 @@
                     @endif
                     <form action="">
                         <div class="form-group row">
-                            <label for="exampleInputEmail1"  class="col-sm-2 col-form-label">Nombre:</label>
+                            <label for="Email1"  class="col-sm-2 col-form-label">Nombre:</label>
                             <div class="col-sm-10">
-                                <input type="text"  class="form-control-plaintext" id="exampleInputNAme" aria-describedby="emailHelp" value="{{Auth::user()->name}}">
+                                <input type="text" readonly  class="form-control-plaintext" id="NAme" aria-describedby="emailHelp" value="{{Auth::user()->name}}">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="exampleInputEmail1"  class="col-sm-2 col-form-label">Apellidos:</label>
+                            <label for="Email1"  class="col-sm-2 col-form-label">Apellidos:</label>
                             <div class="col-sm-10">
-                                <input type="text"  class="form-control-plaintext" id="exampleInputLastname" value="{{Auth::user()->lastName}}">
+                                <input type="text" readonly class="form-control-plaintext" id="Lastname" value="{{Auth::user()->lastName}}">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="exampleInputEmail1"  class="col-sm-2 col-form-label">Nombre:</label>
+                            <label for="Email1"  class="col-sm-2 col-form-label">Nombre:</label>
                             <div class="col-sm-8">
-                                <input type="email"  class="form-control-plaintext" id="exampleInputName" value="{{Auth::user()->name}}">
+                                <input type="email" readonly  class="form-control-plaintext" id="Name" value="{{Auth::user()->name}}">
                             </div>
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -42,9 +42,9 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="exampleInputEmail1"  class="col-sm-2 col-form-label">Contraseña:</label>
+                            <label for="Email1"  class="col-sm-2 col-form-label">Contraseña:</label>
                             <div class="col-sm-10">
-                                <input type="password"  class="form-control-plaintext" id="exampleInputPassword"  value="**********">
+                                <input type="text" readonly class="form-control-plaintext" id="Password"  value="**********">
                             </div>
                         </div>
                     </form>
