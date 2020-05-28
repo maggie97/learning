@@ -24,3 +24,5 @@ Route::get('/game/memory', 'GameController@memory')->name('memory');
 Route::get('/game', 'GameController@index')->name('games');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/children', 'ChildController');
