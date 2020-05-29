@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,15 +24,7 @@ Route::get('/game/bubbles', 'GameController@bubbles')->name('bubbles');
 Route::get('/game/memory', 'GameController@memory')->name('memory');
 Route::get('/game', 'GameController@index')->name('games');
 
-Route::resource('/children', 'ChildController', ['names' => [
-        'index' => 'children',
-        'create' => 'child.new', 
-        'store' => 'child.store',
-        'edit' => 'child.edit',
-        'update' => 'child.update',
-        'destroy' => 'child.delete'
-    ]
-]);
+Route::resource('/children', 'ChildController');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/children', 'ChildController');

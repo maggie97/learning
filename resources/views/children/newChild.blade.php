@@ -5,7 +5,8 @@
 <div class="container">
     <div class="row  justify-content-center">
         <div class="col-10 d-flex justify-content-center">
-            <form action="" class="col-12">
+            <form action="{{ route('children.store') }}" method="POST" class="col-12">
+                @csrf
                 <div class="form-group row">
                     <label for="Name"  class="col-12 col-form-label">Nombre:</label>
                     <div class="col-sm-12">
@@ -37,6 +38,8 @@
                         <input type="text"  class="form-control" id="teacherId"  placeholder="20191919191">
                     </div>
                 </div>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-plus    "></i> Añadir</button>
+
             </form>
         </div>
     </div>

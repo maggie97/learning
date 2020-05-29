@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator ;
 
 class ChildController extends Controller
 {
@@ -37,7 +38,22 @@ class ChildController extends Controller
      */
     public function store(Request $request)
     {
-        
+        /* Validator::make($request->all(),[
+            'Name' => 'required|unique:posts|max:255',
+            'Lastname' => 'required',
+            'dateBorn' => 'required|date',
+            'user_tutor_id' => 'required',
+            'teacherID' => 'nullable'
+        ])->validate(); */
+       /*  if($request->user()->rol == 'P'){
+            DB::table('child')->insert([
+                'name' => $request->Name,
+                'lastName' => $request->Lastname,
+                'dateBorn' =>  $request->dateBorn,
+                'users_tutor_id' => $request->TutorID,
+            ]);
+        } */
+        return $request->input('Lastname');
     }
 
     /**
@@ -50,7 +66,7 @@ class ChildController extends Controller
     {
         $user =  Auth::user();
         // DB::table('child')->join('users', 'users.id', '=', 'child.users_tutor_id')->get();
-        if($user->rol == 'T'){
+        if($user->rol == 'P'){
            return  DB::table('child')->join('users', 'users.id', '=', 'child.users_tutor_id')->get(); 
         }
         //
