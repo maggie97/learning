@@ -5,24 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{-- <meta http-equiv="refresh" content="30" /> --}}
 
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Aprendamos a Leer' ) }} @yield('title')</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" ></script>
+    {{-- <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
     @yield('scripts')
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    
 </head>
 <body>
     <div id="app">
@@ -63,7 +62,7 @@
                                     <a class="dropdown-item" href="{{ route('home') }}">
                                         {{ __('Perfil') }}
                                     </a>
-                                    @if (Auth::user()->rol == 'T' )
+                                    @if (Auth::user()->rol == 'P' )
                                         <a class="dropdown-item" href="{{ route('home') }}">
                                             {{ __('Mis Grupos') }}
                                         </a>
@@ -76,8 +75,11 @@
                                             {{ __('Puntuaciones') }}
                                         </a>
                                     @else 
+                                        <a class="dropdown-item" href="{{ route('children.index') }}">
+                                            {{ __('Mis Hij@s') }}
+                                        </a>
                                         <a class="dropdown-item" href="{{ route('children.create') }}">
-                                            {{ __('Añadir Hijo') }}
+                                            {{ __('Añadir Hij@') }}
                                         </a>
 
                                         <a class="dropdown-item" href="{{ route('home') }}">
