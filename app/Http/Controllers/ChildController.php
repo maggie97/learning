@@ -60,17 +60,13 @@ class ChildController extends Controller
         ], [
             'name.required' => 'El nombre es requerido'
         ])->validate();
-        $professor = $request->teacherID;
-        if( $professor == NULL ){
-            $professor = 1;
-        }
         if($request->user()->rol == 'P'){
             DB::table('child')->insert([
                 'name' => $request->name,
                 'lastName' => $request->lastname,
                 'dateBorn' =>  $request->dateBorn,
                 'users_tutor_id' => $request->TutorID,
-                'users_professor_id' => $professor
+                'users_professor_id' => $request->teacherId
             ]);
         }
         
@@ -97,7 +93,9 @@ class ChildController extends Controller
      */
     public function edit($id)
     {
-        //
+        $profesores = User::where('rol', 'P')->get();
+        $child = DB::table('child')->find(4);
+        return view('children.editChild' , compact('profesores', 'child') );
     }
 
     /**
@@ -109,7 +107,27 @@ class ChildController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'name' => 'required',
+            'lastname' => 'required',
+            'dateBorn' => 'required|date',
+            'TutorID' => 'required',
+            'teacherID' => 'nullable'
+        ], [
+            'name.required' => 'El nombre es requerido'
+        ])->validate();
+
+        $child = DB::table('child')->find(4);
+        
+        DB::table('child')->where('id',$id)->update([
+            'name' => $request->name,
+            'lastName' => $request->lastname,
+            'dateBorn' =>  $request->dateBorn,
+            'users_tutor_id' => $request->TutorID,
+            'users_professor_id' => $request->teacherId 
+        ]);
+
+        return redirect('children');
     }
 
     /**

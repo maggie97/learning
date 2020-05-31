@@ -16,28 +16,28 @@ class ChildSeeder extends Seeder
         DB::table('child')->insert([
             'name' => 'Mateo',
             'lastName' => 'Arias',
-            'dateBorn' => '30/07/2014',
+            'dateBorn' => '2014-07-30',
             'users_tutor_id' => '2',
             'users_professor_id' => '1'
         ]);
         DB::table('child')->insert([
             'name' => 'Aaron',
             'lastName' => 'Mendez',
-            'dateBorn' => '30/11/2019',
+            'dateBorn' => '2019-11-30',
             'users_tutor_id' => '3',
             'users_professor_id' => '4'
         ]);
         DB::table('child')->insert([
             'name' => 'Leon',
             'lastName' => 'Velazquez',
-            'dateBorn' => '30/11/2016',
+            'dateBorn' => '2016-11-30',
             'users_tutor_id' => '3',
             'users_professor_id' => '4'
         ]);
         DB::table('child')->insert([
             'name' => 'David',
             'lastName' => 'Cuellar',
-            'dateBorn' => '30/11/2017',
+            'dateBorn' => '2017-11-30',
             'users_tutor_id' => '2',
             'users_professor_id' => '1'
         ]);
