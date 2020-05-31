@@ -6,7 +6,8 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator ;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class ChildController extends Controller
 {
@@ -17,7 +18,18 @@ class ChildController extends Controller
      */
     public function index()
     {
-        return DB::table('child')->get();
+        $user =  Auth::user();
+        $children = [];
+        if($user->rol == 'T'){
+           $children =  DB::table('child')->where('users_tutor_id', $user->id)->get(); 
+        }
+        else if($user->rol == 'P') {
+            $children =  DB::table('child')->where('users_professor_id',  $user->id)->get();
+        }
+        else{
+            $children = DB::table('child')->get();
+        }
+        return view('children.index', compact('children'));
     }
 
     /**
@@ -27,7 +39,7 @@ class ChildController extends Controller
      */
     public function create()
     {
-        return view('children.newChild');
+        return view('children.newChild', ['professores' => User::where('rol', 'P')->get()]);
     }
 
     /**
@@ -38,22 +50,31 @@ class ChildController extends Controller
      */
     public function store(Request $request)
     {
-        /* Validator::make($request->all(),[
-            'Name' => 'required|unique:posts|max:255',
-            'Lastname' => 'required',
+        //return $request->all();
+        $validator = Validator::make($request->all(),[
+            'name' => 'required',
+            'lastname' => 'required',
             'dateBorn' => 'required|date',
-            'user_tutor_id' => 'required',
+            'TutorID' => 'required',
             'teacherID' => 'nullable'
-        ])->validate(); */
-       /*  if($request->user()->rol == 'P'){
+        ], [
+            'name.required' => 'El nombre es requerido'
+        ])->validate();
+        $professor = $request->teacherID;
+        if( $professor == NULL ){
+            $professor = 1;
+        }
+        if($request->user()->rol == 'P'){
             DB::table('child')->insert([
-                'name' => $request->Name,
-                'lastName' => $request->Lastname,
+                'name' => $request->name,
+                'lastName' => $request->lastname,
                 'dateBorn' =>  $request->dateBorn,
                 'users_tutor_id' => $request->TutorID,
+                'users_professor_id' => $professor
             ]);
-        } */
-        return $request->input('Lastname');
+        }
+        
+        return redirect('home');
     }
 
     /**
@@ -64,11 +85,7 @@ class ChildController extends Controller
      */
     public function show($id)
     {
-        $user =  Auth::user();
-        // DB::table('child')->join('users', 'users.id', '=', 'child.users_tutor_id')->get();
-        if($user->rol == 'P'){
-           return  DB::table('child')->join('users', 'users.id', '=', 'child.users_tutor_id')->get(); 
-        }
+        
         //
     }
 
@@ -103,6 +120,8 @@ class ChildController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $child = DB::table('child')->where('id', $id)->delete();
+
+        return redirect('children')->with('success', 'El elemento fue eliminado');
     }
 }
