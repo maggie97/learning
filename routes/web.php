@@ -28,3 +28,9 @@ Route::resource('/children', 'ChildController');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/children', 'ChildController');
+
+Route::get('/nosotros', function () {
+    return view('nosotros');
+})->name('nosotros');
+
+
