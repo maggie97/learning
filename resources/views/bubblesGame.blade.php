@@ -5,9 +5,16 @@
 <script>
     $('document').ready(function(){
         $('#myModal').modal('show');
+
         $('.btn-card').click(function(){
             $childId = $(this).attr('id');
             $('#childId').val($childId);
+            alert($childId);
+        });
+
+        $('#sendRecord').click(function(){
+            var childID = $("input[name=childId]").val();
+            var score = $("input[name=score]").val();
         })
     })
 </script>
@@ -37,13 +44,28 @@
         <div id="lienzo" class="col-10" > </div>
     </div>
     <div class="row m-1 justify-content-center">
-        <div class="col d-flex justify-content-center">
-            <input type="hidden" id="childId" name="childId" value="">
-            <button id="play"class="btn btn-dark" onclick="onclickStartButton()" {{-- data-toggle="modal" data-target="#staticBackdrop" --}}>
+        <div class="col col-md-3 d-flex justify-content-center">
+            <button id="play"class="btn btn-dark" onclick="onclickStartButton()" >
                 Play
             </button>
         </div>
+        <form action=" {{route('records.store')}} " class="col-md-3 d-flex justify-content-center" method="POST">
+            @csrf
+            <input type="hidden" id="childId" name="childId" value="">
+            <input type="hidden" id="scoreTotal" name="score" value="">
+
+            <button id="sendRecord" type="submit" class="btn btn-dark bg-dark" >
+                Guardar Puntuacion
+            </button>
+
+        </form>
+        <div class="col-md-3  d-flex justify-content-center">
+            <button type="reset" class="btn btn-dark bg-dark" >
+                Salir
+            </button>
+        </div>
     </div>
+    
 </div>
 
 <div class="modal" id="myModal" tabindex="-1" role="dialog">
@@ -59,7 +81,7 @@
             <div class="container">
                 <div class="row justify-content-around">
                     @foreach (Auth::user()->children as $child)
-                        <button id="{{$child->id}}" class="btn btn-dark bg-dark btn-card col-5" data-dismiss="modal" >
+                        <button id="{{$child->id}}" class="btn m-2 btn-dark bg-dark btn-card col-5" data-dismiss="modal" >
                             {{$child->name}}
                         </button>
                     @endforeach
