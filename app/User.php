@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function children(){
+        if($this->rol == 'T'){
+            return $this->hasMany('App\Child', 'users_tutor_id');
+        }
+        else if($this->rol == 'P'){
+            return $this->hasMany('App\Child', 'users_professor_id');
+        }
+        
+    }
 }
