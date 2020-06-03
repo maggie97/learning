@@ -21,17 +21,18 @@ class ChildController extends Controller
         $user =  Auth::user();
         $children = [];
         if($user->rol == 'T'){
-           $children =  DB::table('child')->where('users_tutor_id', $user->id)->get(); 
+           $children =  DB::table('children')->where('users_tutor_id', $user->id)->get(); 
         }
         else if($user->rol == 'P') {
-            $children =  DB::table('child')->where('users_professor_id',  $user->id)->get();
+            $children =  DB::table('children')->where('users_professor_id',  $user->id)->get();
         }
         else{
-            $children = DB::table('child')->get();
+            $children = DB::table('children')->get();
         }
         return view('children.index', compact('children'));
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
