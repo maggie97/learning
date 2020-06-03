@@ -15,7 +15,12 @@ class CreateRecordsTable extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id();
-            
+            $table->unsignedBigInteger('child_id');
+            $table->foreign('child_id')->references('id')->on('children');
+            $table->unsignedBigInteger('game_id');
+            $table->foreign('game_id')->references('id')->on('games');
+            $table->integer('score');
+            $table->date('date');
             $table->timestamps();
         });
     }

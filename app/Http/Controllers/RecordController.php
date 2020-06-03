@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Record;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class RecordController extends Controller
@@ -14,7 +15,8 @@ class RecordController extends Controller
      */
     public function index()
     {
-        //
+        //return Auth::user()->children;
+        return view('records.index', [ 'children' => Auth::user()->children]);
     }
 
     /**

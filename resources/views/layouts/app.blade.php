@@ -63,16 +63,8 @@
                                         {{ __('Perfil') }}
                                     </a>
                                     @if (Auth::user()->rol == 'P' )
-                                        <a class="dropdown-item" href="{{ route('home') }}">
-                                            {{ __('Mis Grupos') }}
-                                        </a>
-
-                                        <a class="dropdown-item" href="{{ route('home') }}">
+                                        <a class="dropdown-item" href="{{ route('children.index') }}">
                                             {{ __('Mis Alumnos') }}
-                                        </a>
-
-                                        <a class="dropdown-item" href="{{ route('home') }}">
-                                            {{ __('Puntuaciones') }}
                                         </a>
                                     @else 
                                         <a class="dropdown-item" href="{{ route('children.index') }}">
@@ -81,16 +73,17 @@
                                         <a class="dropdown-item" href="{{ route('children.create') }}">
                                             {{ __('Añadir Hij@') }}
                                         </a>
-
-                                        <a class="dropdown-item" href="{{ route('home') }}">
-                                            {{ __('Registros') }}
-                                        </a>
-
                                         <a class="dropdown-item" href="{{ route('games') }}">
                                             {{ __('Juegos') }}
                                         </a>
                                     @endif
-                                    
+                                    <a class="dropdown-item" href="{{ route('records.index') }}">
+                                        {{ __('Registro de actividad') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('children.score') }}">
+                                        {{ __('Puntuaciones') }}
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

@@ -27,10 +27,12 @@ Route::get('/game', 'GameController@index')->name('games');
 Route::resource('/children', 'ChildController');
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/children', 'ChildController');
+Route::resource('/records', 'RecordController')->only(['index']);
+Route::get('/score', function(){
+    return view('records.recordByChild', ['children' => Auth::user()->children]);
+})->name('children.score');
 
 Route::get('/nosotros', function () {
     return view('nosotros');
 })->name('nosotros');
-
 
