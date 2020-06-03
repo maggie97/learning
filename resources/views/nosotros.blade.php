@@ -44,10 +44,11 @@
     sea más divertida, entretenida y fácil para que ellos no pierdan el interés.<br>
 </p>
 <h1 class="encabezado">Creado por </h1>
-<p class="parrafo2">MARGARITA NEFTALI MENDEZ RODRIGUEZ<br>
-    CARMEN VIRDIANA SOLIS PEREZ
+<p class="parrafo2">MARGARITA NEFTALÍ MÉNDEZ RODRÍGUEZ<br>
+    CARMEN VIRDIANA SOLIS PÉREZ
 </p>
 
 </body>
 @endsection
+
 </html>
