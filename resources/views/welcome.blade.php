@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="#">Nosotros</a>
+                    <a href="{{ route('nosotros') }}">Nosotros</a>
                     <a href=" {{ route('games') }} ">Juegos</a>
                     <a href="#">Records</a>
                     

@@ -29,7 +29,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/records', 'RecordController')->only(['index']);
 Route::get('/score', function(){
-    //return Auth::user()->children;
     return view('records.recordByChild', ['children' => Auth::user()->children]);
-    
 })->name('children.score');
+
+Route::get('/nosotros', function () {
+    return view('nosotros');
+})->name('nosotros');
+
