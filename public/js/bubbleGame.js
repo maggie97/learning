@@ -79,7 +79,8 @@ function pressBubble(id){
             break;
     }
     if (aciertos  == puntaje ){
-        alert("Ganaste");
+        var childId = document.getElementById('childId').value;
+        window.location.href = '';
     }
     
 }

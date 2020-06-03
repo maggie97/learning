@@ -27,6 +27,7 @@ class RecordController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**
@@ -37,7 +38,12 @@ class RecordController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Record::create([
+            'child_id' => '3',
+            'game_id' => '1',
+            'score' => '10',
+            'date' => '2020-05-01'
+        ]);
     }
 
     /**
