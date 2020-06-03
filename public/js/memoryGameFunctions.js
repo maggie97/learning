@@ -20,7 +20,7 @@ function flipCard(id){
      //second click 
      secondCard = card;
 
-     checkForMatch();
+    checkForMatch();
 }
 
 function checkForMatch(){
@@ -36,6 +36,9 @@ function disableCards(){
     if (this.aciertos == this.points){
         alert("Ganaste");
     }
+    document.getElementById('puntaje').value = points;
+    document.getElementById('puntaje').innerHTML = points;
+    document.getElementById('scoreTotal').value = points;
     resetBoard();
 }
 
@@ -61,5 +64,7 @@ window.onload = function(){
         let randomPos = Math.floor(Math.random() * 12);
         c.style.order = randomPos;
     }
-    this.aciertos = cards.length / 2;
+    this.aciertos = cards.length ;
+    document.getElementById('aciertos').innerHTML = aciertos;
+    document.getElementById('puntaje').innerHTML = 0;
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Child;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -61,8 +62,8 @@ class ChildController extends Controller
         ], [
             'name.required' => 'El nombre es requerido'
         ])->validate();
-        if($request->user()->rol == 'P'){
-            DB::table('child')->insert([
+        if($request->user()->rol == 'T'){
+            DB::table('children')->insert([
                 'name' => $request->name,
                 'lastName' => $request->lastname,
                 'dateBorn' =>  $request->dateBorn,
@@ -71,7 +72,7 @@ class ChildController extends Controller
             ]);
         }
         
-        return redirect('home');
+        return redirect('children');
     }
 
     /**
@@ -95,7 +96,7 @@ class ChildController extends Controller
     public function edit($id)
     {
         $profesores = User::where('rol', 'P')->get();
-        $child = DB::table('child')->find(4);
+        $child = DB::table('children')->find(4);
         return view('children.editChild' , compact('profesores', 'child') );
     }
 
@@ -118,9 +119,9 @@ class ChildController extends Controller
             'name.required' => 'El nombre es requerido'
         ])->validate();
 
-        $child = DB::table('child')->find(4);
+        $child = DB::table('children')->find(4);
         
-        DB::table('child')->where('id',$id)->update([
+        DB::table('children')->where('id',$id)->update([
             'name' => $request->name,
             'lastName' => $request->lastname,
             'dateBorn' =>  $request->dateBorn,
@@ -139,7 +140,7 @@ class ChildController extends Controller
      */
     public function destroy($id)
     {
-        $child = DB::table('child')->where('id', $id)->delete();
+        $response = Child::findOrFail($id)->delete();
 
         return redirect('children')->with('success', 'El elemento fue eliminado');
     }

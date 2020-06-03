@@ -18,11 +18,6 @@
                 <h1 class="text-center">Puntuaciones</h1>
             </div>
         </div>
-@php
-    $scores = 0;
-@endphp
-
-
         <div class="row justify-content-center">
             <div class="col col-md-10">
                 <table id="scoreTable" class="text-center">
@@ -35,21 +30,15 @@
                         <tr>
                             @php
                                 $records = $child->records;
-                                $scores += count($records);
-                                $score = $records->sum('score')
                             @endphp
-                            @if (count($records)>0)
-                                <td> {{ $child->name }} {{ $child->lastname }} </td>
-                                <td> {{ $score }} </td>
-                                <td> {{ $records->last()->date }} </td> 
+                            <td>{{$child->name}} </td>
+                            <td>{{$records->sum('score')}} </td>
+                            @if ( count($records) > 0 )
+                                <td>{{$records->last()->created_at }} </td>
                             @endif
                         </tr>
                         @endforeach
                 </table>
-
-                @if ($scores == 0)
-                    <script>alert('No hay elementos para mostrar')</script>
-                @endif
             </div>
         </div>
     </div>

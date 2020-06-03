@@ -78,9 +78,10 @@ function pressBubble(id){
             console.log('fuera de rango');
             break;
     }
-    if (aciertos  == puntaje ){
-        alert("Ganaste");
-    }
+    /* if (aciertos == puntaje ){
+        document.getElementById('scoreTotal').value = puntaje;
+        $('#registroModal').modal('show'); 
+    } */
     
 }
 function burbujaRevienta(index, bubble){
@@ -89,6 +90,7 @@ function burbujaRevienta(index, bubble){
     console.log(burbujas);
     puntaje += 1;
     document.getElementById('puntaje').innerHTML = puntaje;
+    document.getElementById('scoreTotal').value = puntaje;
 }
 function onclickStartButton(){
     gameSpace = document.getElementById('lienzo');
