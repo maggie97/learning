@@ -1,31 +1,18 @@
 @extends('layouts.app')
-<!DOCTYPE html>
-    <html>
-        <head> 
-            <style>
-             .content {
-                text-align: center;
-            }
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-            .full-height {
-                height: 15vh;
-            }
-            .links > a {
-                color: #636b6f;
-                padding: 0 100px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-            </style>
-        </head>
-    
+
+@section('scripts')
+        <div class="row justify-content-center">
+            <div class="content">
+                <div class="links">
+                    <a href="{{ route('bubbles') }}">Bubbles</a>
+                    <a href=" {{ route('memory') }} ">Memoria</a><br><br>
+                    <a href="{{ route('masInfo') }}">Información</a>
+                    
+                </div>
+            </div>
+        </div>
+@endsection
+
 @section('content')
 
 <div class="container">
@@ -48,15 +35,6 @@
         </div>
     </div>
 </div>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="links">
-                    <a href="{{ route('bubbles') }}">Bubbles</a>
-                    <a href=" {{ route('memory') }} ">Memoria</a><br><br>
-                    <a href="{{ route('masInfo') }}">Información</a>
-                    
-                </div>
-            </div>
-        </div>
-         @endsection
-    </html>
+
+@endsection
+         
