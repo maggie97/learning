@@ -61,9 +61,11 @@
 
         </form>
         <div class="col-md-3  d-flex justify-content-center">
-            <button type="reset" class="btn btn-dark bg-dark" >
-                Salir
-            </button>
+            <a href="{{route('games')}} ">
+                <button type="reset" class="btn btn-dark bg-dark" >
+                    Salir
+                </button>
+            </a>
         </div>
     </div>
     

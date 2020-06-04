@@ -151,9 +151,11 @@
             Guardar Puntuacion
         </button>
     </form>
-    <button type="reset" class="btn btn-dark bg-dark col-md-2" >
-        Salir
-    </button>
+    <a href="{{route('games')}} ">
+        <button type="reset" class="btn btn-dark bg-dark" >
+            Salir
+        </button>
+    </a>
 </div>
 
 <div class="modal" id="myModal" tabindex="-1" role="dialog">

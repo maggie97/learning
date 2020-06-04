@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Aprendamos Jugando</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -81,14 +81,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Aprendamos a leer
+                    Aprendamos a leer Jugando
                 </div>
 
                 <div class="links">
                     <a href="{{ route('nosotros') }}">Nosotros</a>
                     <a href=" {{ route('games') }} ">Juegos</a>
-                    <a href="#">Records</a>
-                    
                 </div>
             </div>
         </div>
