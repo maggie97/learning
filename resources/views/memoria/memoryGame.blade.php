@@ -11,11 +11,17 @@
         $('.btn-card').click(function(){
             $childId = $(this).attr('id');
             $('#childId').val($childId);
+            $('audio#myAudio').trigger('play') ;
         });
 
         $('#sendRecord').click(function(){
             var childID = $("input[name=childId]").val();
             var score = $("input[name=score]").val();
+        })
+
+        $('.memory-card').click(function(id){
+            alert(id.value);
+            $('audio#target').trigger('play');
         })
     })
 </script>
@@ -29,6 +35,12 @@
     <div class="row justify-content-center">
         <div class="p text-center">Voltea las tarjetas buscando su par</div>
     </div>
+    <audio id="myAudio" >
+        <source src="{{ url('audio/memoria0.mp3') }} " type="audio/mpeg">
+    </audio>
+    <audio id="target">
+        <source src="{{ url('audio/burbujas0.mp3') }} " type="audio/mpeg">
+    </audio>
     <div class="row justify-content-center" id="div_puntation">
         <div class="col-4 d-flex justify-content-center align-content-center text-center">
             <h3>Aciertos:</h3>
