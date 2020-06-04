@@ -7,9 +7,9 @@ let gameSpace = 0;
 var burbujas = new Array();
 
 var topLienzo = 0;
-let alphabet = ['A', 'B', 'C', 'D', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var nivel = 0, aciertos = 0, puntaje = 0;
-
+let audios = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 function Bubble(id, width, posInitX, posInitY, speed, text){
     this.id = 'b' + id;
@@ -91,6 +91,11 @@ function burbujaRevienta(index, bubble){
     puntaje += 1;
     document.getElementById('puntaje').innerHTML = puntaje;
     document.getElementById('scoreTotal').value = puntaje;
+    var audio = $('#myAudio');
+    var ind = bubble.id.replace('b', '');
+    audio.attr('src', '../Audios_bubble/a-' + audios[ind] +'.mp3');
+    audio.trigger('play');
+    
 }
 function onclickStartButton(){
     gameSpace = document.getElementById('lienzo');

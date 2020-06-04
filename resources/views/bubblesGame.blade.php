@@ -9,13 +9,13 @@
         $('.btn-card').click(function(){
             $childId = $(this).attr('id');
             $('#childId').val($childId);
-            alert($childId);
+            $('audio#myAudio').trigger('play');
         });
 
         $('#sendRecord').click(function(){
             var childID = $("input[name=childId]").val();
             var score = $("input[name=score]").val();
-        })
+        });
     })
 </script>
 @endsection
@@ -39,7 +39,7 @@
             
         </div>
     </div>
-    
+    <audio id="myAudio" > <source src="{{ url('audio/burbujas0.mp3') }} " type="audio/mpeg"> </audio>
     <div class="row justify-content-center">
         <div id="lienzo" class="col-10" > </div>
     </div>
@@ -52,7 +52,8 @@
         <form action=" {{route('records.store')}} " class="col-md-3 d-flex justify-content-center" method="POST">
             @csrf
             <input type="hidden" id="childId" name="childId" value="">
-            <input type="hidden" id="scoreTotal" name="score" value="">
+            <input type="hidden" id="gameId" name="childId" value="1">
+            <input type="hidden" id="scoreTotal" name="score" value="0">
 
             <button id="sendRecord" type="submit" class="btn btn-dark bg-dark" >
                 Guardar Puntuacion

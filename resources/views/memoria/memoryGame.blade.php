@@ -11,7 +11,7 @@
         $('.btn-card').click(function(){
             $childId = $(this).attr('id');
             $('#childId').val($childId);
-            $('audio#abeja').trigger('play') ;
+            $('audio#myAudio').trigger('play') ;
         });
 
         $('#sendRecord').click(function(){
@@ -145,7 +145,8 @@
     <form action=" {{route('records.store')}} " class="col-md-2 d-flex justify-content-center" method="POST">
         @csrf
         <input type="hidden" id="childId" name="childId" value="">
-        <input type="hidden" id="scoreTotal" name="score" value="">
+        <input type="hidden" id="scoreTotal" name="score" value="0">
+        <input type="hidden" id="gameId" name="childId" value="2">
         <button id="sendRecord" type="submit" class="btn btn-dark bg-dark" >
             Guardar Puntuacion
         </button>

@@ -38,15 +38,9 @@ class RecordController extends Controller
      */
     public function store(Request $request)
     {
-        /* Record::create([
-            'child_id' => $request->childId ?? '',
-            'game_id' => '1',
-            'score' => $request->score ?? '',
-            'date' => date("Y-m-d")
-        ]); */
         Record::create([
             'child_id' => $request->childId ?? '',
-            'game_id' => '1',
+            'game_id' => $request->gameId,
             'score' => $request->score ?? '',
             'date' => date("Y-m-d")
         ]);
