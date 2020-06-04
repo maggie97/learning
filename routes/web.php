@@ -23,6 +23,7 @@ Auth::routes();
 Route::get('/game/bubbles', 'GameController@bubbles')->name('bubbles');
 Route::get('/game/memory', 'GameController@memory')->name('memory');
 Route::get('/game', 'GameController@index')->name('games');
+Route::get('/game/informacion', 'GameController@informacion')->name('masInfo');
 
 Route::resource('/children', 'ChildController');
 Route::get('/home', 'HomeController@index')->name('home');

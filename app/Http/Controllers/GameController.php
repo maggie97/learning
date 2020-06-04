@@ -37,7 +37,10 @@ class GameController extends Controller
         //
         return view('memoria.memoryGame');
     }
-
+    public function informacion()
+    {
+        return view('masInfo');
+    }
     /**
      * Show the form for creating a new resource.
      *
