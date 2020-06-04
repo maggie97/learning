@@ -11,7 +11,7 @@
         $('.btn-card').click(function(){
             $childId = $(this).attr('id');
             $('#childId').val($childId);
-            $('audio#myAudio').trigger('play') ;
+            $('audio#abeja').trigger('play') ;
         });
 
         $('#sendRecord').click(function(){
@@ -20,8 +20,37 @@
         })
 
         $('.memory-card').click(function(id){
-            alert(id.value);
-            $('audio#target').trigger('play');
+            //alert(id.delegateTarget.id.split('c')[1]);
+            var audioId = id.delegateTarget.id.split('c')[1];
+            switch(audioId){
+                case "2":
+                case "1":
+                    $('audio#abeja').trigger('play');
+                    break;
+                case "4":
+                case "3":
+                    $('audio#caracol').trigger('play');
+                    break;
+                case "6":
+                case "5":
+                    $('audio#gato').trigger('play');
+                    break;
+                case "8":
+                case "7":
+                    $('audio#pajaro').trigger('play');
+                    break;
+                case "10":
+                case "9":
+                    $('audio#perro').trigger('play');
+                    break;
+                case "12":
+                case "11":
+                    $('audio#vaca').trigger('play');
+                    break; 
+                default:
+                    break;
+            }
+            
         })
     })
 </script>
@@ -38,9 +67,13 @@
     <audio id="myAudio" >
         <source src="{{ url('audio/memoria0.mp3') }} " type="audio/mpeg">
     </audio>
-    <audio id="target">
-        <source src="{{ url('audio/burbujas0.mp3') }} " type="audio/mpeg">
-    </audio>
+    <audio id="abeja"> <source src="{{ url('Audio_Memoria/abejaA.mp3') }} " type="audio/mpeg"> </audio>
+    <audio id="caracol"> <source src="{{ url('Audio_Memoria/CaracolA.mp3') }} " type="audio/mpeg"> </audio>
+    <audio id="gato"> <source src="{{ url('Audio_Memoria/Gatoa.mp3') }} " type="audio/mpeg"> </audio>
+    <audio id="pajaro"> <source src="{{ url('Audio_Memoria/PajaroA.mp3') }} " type="audio/mpeg"> </audio>
+    <audio id="perro"> <source src="{{ url('Audio_Memoria/perroa.mp3') }} " type="audio/mpeg"> </audio>
+    <audio id="vaca"> <source src="{{ url('Audio_Memoria/VacaA.mp3') }} " type="audio/mpeg"> </audio>
+    
     <div class="row justify-content-center" id="div_puntation">
         <div class="col-4 d-flex justify-content-center align-content-center text-center">
             <h3>Aciertos:</h3>
@@ -103,7 +136,7 @@
                     <img class="front-face" src="{{url('img/vaca1.jpg')}}" alt= "Vaca1" />
                     <img class="back-face" src="{{url('img/tapa.jpg')}}" alt="Tapa" />
                 </div>
-                </section>
+            </section>
         </div>
     </div>
 </div>
